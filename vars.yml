@@ -1,0 +1,12 @@
+# ./vars.yml
+location: eastus
+resource_group: myResourceGroup
+vnet: myVnet
+subnet: mySubnet
+public_ip: myPublicIP
+network_security_group: myNetworkSecurityGroup
+vnic: myNIC
+storage_account: ttt21
+key_data: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBQa+oaNJz2xyDCOL37aU7SOtybNp9KpAJ++WAtYi6ySCmQpmaVy4fC52vlObWldKzJhV5CNqSoXEoyNLH7tAQWqyOiQVZsgg+N6x169MxPbGcOLGYhFS02vqYl0fUYQgrVgH46JoWTWNTTbnlfzV0IA1XZG6Dl3WX8VDjOxOHr7nFiXTDf24HgmkoG+SaqPXphbBQmKHdHHHFh8hBNjGgemBofSTS9g4KZJlhrt0aqYd1LlTEeMU6QrAjTLsDHdQLNaEygiKG5fbaWsWx0PzHTof7kb0RkyaOVONF8h6jFG+KlV/JS2Q2s5fiMQsyoVyOxNPjNugdQIWPBGz3Tf7f2YB38CQbKzKlj1V6tHY9xnA37a1eMKGid6ULzXPpQsi1tv8p4WJ+vmu/czJK+euczWLrPh9YVrzRexnlDCzV2PwzuU/C2qDcZ0iQPTKA8TPydhlZroQuWAwmkOe6nB4o/mVFOlHLZ6+KV8WDa/3M7FbKe4O6B0B+FkmCJZNr08E= mg@Manavs-MacBook-Pro.local"
+admin_username: azureuser
+vm_name: myVM

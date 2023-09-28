@@ -1,0 +1,63 @@
+# Delete the Azure resources passing the name of VM as --extra-vars "vm=secwin009"
+- name: Delete Azure resources
+  hosts: localhost
+  connection: local
+  collections:
+    - azure.azcollection
+
+  tasks:
+  - include_vars: vars.yml
+
+  - name: Delete Azure VM - "{{ vm_name }}"
+    azure.azcollection.azure_rm_virtualmachine:
+      resource_group: "{{ resource_group }}"
+      name: "{{ vm_name }}"
+      state: absent
+
+  - name: Delete Storage Account - "{{ storage_account }}"
+    azure.azcollection.azure_rm_storageaccount:
+      resource_group: "{{ resource_group }}"
+      name: "{{ storage_account }}"
+      force_delete_nonempty: true
+      state: absent
+
+  - name: Delete virtual network interface card - "{{ vnic }}"
+    azure.azcollection.azure_rm_networkinterface:
+      resource_group: "{{ resource_group }}"
+      name: "{{ vnic }}"
+      virtual_network: "{{ vnet }}"
+      subnet: "{{ subnet }}"
+      public_ip_name: "{{ public_ip }}"
+      security_group: "{{ network_security_group }}"
+      state: absent
+
+  - name: Delete Network Security Group - "{{ network_security_group }}"
+    azure.azcollection.azure_rm_securitygroup:
+      resource_group: "{{ resource_group }}"
+      name: "{{ network_security_group }}"
+      state: absent
+
+  - name: Delete public IP - "{{ public_ip }}"
+    azure.azcollection.azure_rm_publicipaddress:
+      resource_group: "{{ resource_group }}"
+      name: "{{ public_ip }}"
+      state: absent
+
+  - name: Delete subnet - "{{ subnet }}"
+    azure.azcollection.azure_rm_subnet:
+      resource_group: "{{ resource_group }}"
+      name: "{{ subnet }}"
+      virtual_network: "{{ vnet }}"
+      state: absent
+
+  - name: Delete virtual network - "{{ vnet }}"
+    azure.azcollection.azure_rm_virtualnetwork:
+      resource_group: "{{ resource_group }}"
+      name: "{{ vnet }}"
+      state: absent
+
+  - name: Delete Resource Group - "{{ resource_group }}"
+    azure.azcollection.azure_rm_resourcegroup:
+      name: "{{ resource_group }}"
+      location: "{{ location }}"
+      state: absent
